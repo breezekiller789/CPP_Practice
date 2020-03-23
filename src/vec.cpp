@@ -17,7 +17,7 @@ void Parse_Input(FILE *fp, vector<int> vec){
 
 int main(int argc, char *argv[]) {
     vector <int> vec;
-    FILE *fp = fopen("./Input_Files/input1.txt", "r");
+    FILE *fp = fopen("../Input_Files/input1.txt", "r");
     if(fp == NULL){
         fprintf(stderr, "File open failed\n");
         exit(1);
