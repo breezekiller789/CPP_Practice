@@ -10,6 +10,7 @@ OBJ = $(patsubst %.cpp,$(OBJDIR)/%.o, $(notdir $(SRC)))
 BIN = $(patsubst %.cpp,$(BINDIR)/%, $(notdir $(SRC)))
 CC = g++
 CCFLAGS = -Wall -Werror -g -I$(INCDIR)
+DIRECTORY = obj bin
 RED = \033[1;31m
 GREEN = \033[1;32m
 YELLOW = \033[1;33m
@@ -23,11 +24,12 @@ all : $(BIN)
 
 $(BINDIR)/% : $(OBJDIR)/%.o
 	$(CC) -o $@ $<
+	@echo "$(GREEN)Done!$(NC)"
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.cpp
 	@echo "$(RED)Compiling...$(NC)"
+	mkdir -p $(DIRECTORY)
 	$(CC) $(CCFLAGS) -c $< -o $@
-	@echo "$(GREEN)Done!$(NC)"
 
 .PHONY : clean help
 
