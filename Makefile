@@ -31,6 +31,9 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.cpp
 	mkdir -p $(DIRECTORY)
 	$(CC) $(CCFLAGS) -c $< -o $@
 
+setup :
+	mkdir -p $(DIRECTORY)
+
 .PHONY : clean help
 
 clean :
